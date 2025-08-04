@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors'); // ✅ ADD THIS
 const childRoutes = require('./routes/childRoutes');
 
 dotenv.config();
 const app = express();
 
+app.use(cors()); // ✅ ALLOW ALL ORIGINS TEMPORARILY
 app.use(express.json());
 app.use('/api/children', childRoutes);
 
